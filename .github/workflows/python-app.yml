@@ -5,9 +5,9 @@ name: WebScraper Application
 
 on:
   push:
-    branches: [ master ]
+    branches: [ master , xgschwi, tests ]
   pull_request:
-    branches: [ master ]
+    branches: [ master, xgschwi, tests ]
 
 jobs:
   test:
