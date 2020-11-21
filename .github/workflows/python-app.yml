@@ -5,9 +5,9 @@ name: WebScraper Application
 
 on:
   push:
-    branches: [ master , xgschwi, tests ]
+    branches: [ master , xgschwi, rhartlage10, tests ]
   pull_request:
-    branches: [ master, xgschwi, tests ]
+    branches: [ master, xgschwi, rhartlage10, tests ]
 
 jobs:
   test:
@@ -36,3 +36,23 @@ jobs:
         cd tests
         pytest test.py
         rm -r __pycache__
+        
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python 3.8
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.8
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip    
+    - name: build main
+      run: |
+        cd main
+        python -m py_compile main.py
+            
+        
