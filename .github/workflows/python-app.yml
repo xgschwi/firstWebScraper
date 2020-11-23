@@ -53,6 +53,8 @@ jobs:
     - name: build main
       run: |
         cd main
-        python -m py_compile main.py
+        cd main
+        cd spiders
+        python -m py_compile first_spider.py
             
         
